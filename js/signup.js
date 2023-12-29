@@ -9,8 +9,9 @@ var emailInput = document.querySelector(".collector input[name='email:']")
   if(localStorage.getItem("accounts") !=null){
     accountList=JSON.parse(localStorage.getItem("accounts"));
   }
+ 
 // ============================================ START EVENTS ================================================= 
-  signupButton.addEventListener("click",function (eventInfo) {
+  signupButton.addEventListener("click",function () {
     signup();
   })
   nameInput.addEventListener("input",function(){
@@ -93,7 +94,8 @@ document.querySelector(".collector p a").addEventListener("click",function(){
         emailInput.classList.remove("is-valid")
         document.querySelector(".email-text").classList.remove("d-none")
         document.querySelector(".email-text2").classList.add("d-none");
-        return false;
+        return emailRegex.test(emailInput.value);
+        
       
     }
     return check;
@@ -118,5 +120,5 @@ document.querySelector(".collector p a").addEventListener("click",function(){
 
   // ============================================ BACK TO SIGN IN PAGE=================================================
   function backToSignin(){
-    window.location.assign("../index.html")
+    window.location.assign("./index.html")
   }
